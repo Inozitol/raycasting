@@ -2,7 +2,7 @@
 
 void CApp::OnCleanup(){
 	SDL_FreeSurface(Surf_Display);
-	SDL_FreeSurface(Surf_Test);
+	SDL_FreeSurface(Test_Display);
 
 	SDL_Quit();
 }

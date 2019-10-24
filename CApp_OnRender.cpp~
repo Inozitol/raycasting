@@ -13,8 +13,6 @@ void CApp::OnRender(){
 			height=display.h;
 		}
 	}
-	width=640;
-	height=480;
 
 	//std::cout << width << " " << height << '\n';
 
