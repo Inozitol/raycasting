@@ -4,19 +4,8 @@
 
 void CApp::OnRender(){
 
-	for(int i=0; i<SDL_GetNumVideoDisplays(); ++i){
-		if(SDL_GetCurrentDisplayMode(i, &display)){
-			width=1200;
-			height=900;
-		}else{
-			width=display.w;
-			height=display.h;
-		}
-	}
 	width=640;
 	height=480;
-
-	//std::cout << width << " " << height << '\n';
 
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_RenderClear(renderer);
@@ -119,10 +108,7 @@ void CApp::OnRender(){
 			int d = y * 256 - height * 128 + lineHeight * 128;
 			int yTex = ((d * tx_height) / lineHeight) / 256;
 			Uint32 color = texture[tex_num][tx_height * yTex + xTex];
-			//if(side == 1) color = (color >> 1) & 8355711;
 			buffer[y][x] = color;
-			//SDL_SetRenderDrawColor(renderer, color / 65536, (color / 256) % 256, color % 256, 255);
-			//SDL_RenderDrawPoint(renderer, x, y);	
 		}
 		
 
@@ -131,8 +117,6 @@ void CApp::OnRender(){
 	playerControl();
 
 	SDL_UpdateTexture(scr_texture, NULL, buffer, 640 * sizeof(Uint32) ); 
-
-	//display_buffer(buffer[0]);
 
 	for(int x=0; x<width; x++) 
 		for(int y=0; y<height; y++)
